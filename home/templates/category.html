@@ -1,0 +1,66 @@
+{%  extends 'layout.html' %}
+
+{% load static %}
+
+{% block content %}
+  <main id="main">
+    <section>
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-9" data-aos="fade-up">
+            {% for single in singleCategory %} 
+            <h3 class="category-title">Category: {{single.category}}</h3>
+            {% endfor %}
+            
+         
+            {% for cat in category %}
+
+            <div class="d-md-flex post-entry-2 half">
+              <a href="/post/{{cat.id}}" class="me-4 thumbnail">
+                <img src="{{cat.cover_image.url}}" alt="" class="img-fluid">
+              </a>
+              <div>
+                <div class="post-meta"><span class="date">{{cat.category}}</span> <span class="mx-1">&bullet;</span> <span>{{ cat.date}}</span></div>
+                <h3><a href="/post/{{cat.id}}">{{ cat.heading }}</a></h3>
+                <p>{{ cat.short_paragraph}}</p>
+                <div class="d-flex align-items-center author">
+                  <!-- <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div> -->
+                  <div class="name">
+                    <h3 class="m-0 p-0">{{ cat.writer}}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+
+            <div class="text-start py-4">
+              
+              <div class="custom-pagination">
+                {% if category.has_previous %}
+                <a href="?page={{category.previous_page_number}}" class="prev">Prevous</a>
+                {% endif %}
+             {% for i in category.paginator.page_range %}
+                <a href="?page={{i}}" 
+                {% if category.number == i %}
+                class="active"
+                {% endif %}
+
+                >{{i}}</a>
+
+              {% endfor %}
+                {% if category.has_next %}
+                <a href="?page={{category.next_page_number}}" class="next">Next</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+          
+
+        </div>
+      </div>
+    </section>
+  </main><!-- End #main -->
+{% endblock %}

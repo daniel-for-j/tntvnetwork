@@ -1,0 +1,263 @@
+
+{%  extends 'layout.html' %}
+
+{% load static %}
+
+{% block content %}
+  
+  <main id="main">
+
+    <!-- ======= Hero Slider Section ======= -->
+    <section id="hero-slider" class="hero-slider">
+      <div class="container-md" data-aos="fade-in">
+        <div class="row">
+          <div class="col-12">
+            <div class="swiper sliderFeaturedPosts">
+              <div class="swiper-wrapper">
+
+
+               {% for slidePost in slidePosts %}
+                <div class="swiper-slide">
+                  <a href="/post/{{slidePost.id}}" class="img-bg d-flex align-items-end" style="background-image: url('{{slidePost.cover_image.url}}');">
+                    <div class="img-bg-inner">
+                      <h2>{{ slidePost.heading }}</h2>
+                      <p>{{ slidePost.short_paragraph}}</p>
+                    </div>
+                  </a>
+                </div>
+               {% endfor %}
+          
+              </div>
+              <div class="custom-swiper-button-next">
+                <span class="bi-chevron-right"></span>
+              </div>
+              <div class="custom-swiper-button-prev">
+                <span class="bi-chevron-left"></span>
+              </div>
+
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Hero Slider Section -->
+
+  
+    <section class="category-section">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header d-flex justify-content-between align-items-center mb-5">
+          <h2>Politics</h2>
+          <div><a href="/category/Politics" class="more">See All Politics</a></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-9">
+         {% for politicsLatestPost in politicsLatestPosts %}
+            <div class="d-lg-flex post-entry-2">
+              <a href="/post/{{politicsLatestPost.id}}" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
+                <img src="{{politicsLatestPost.cover_image.url}}" alt="" class="img-fluid">
+              </a>
+              <div>
+                <div class="post-meta"><span class="date">{{politicsLatestPost.category}}</span> <span class="mx-1">&bullet;</span> <span>{{politicsLatestPost.date}}</span></div>
+                <h3><a href="/post/{{politicsLatestPost.id}}">{{politicsLatestPost.heading}}</a></h3>
+                <p>{{politicsLatestPost.short_paragraph}}</p>
+                <div class="d-flex align-items-center author">
+                  <!-- <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div> -->
+                  <div class="name">
+                    <h3 class="m-0 p-0">{{politicsLatestPost.writer}}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+            <!-- <div class="row">
+              <div class="col-lg-4">
+                <div class="post-entry-1 border-bottom">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                </div>
+
+                <div class="post-entry-1">
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+              </div>
+
+              <div class="col-lg-8">
+                <div class="post-entry-1">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                </div>
+              </div>
+            </div> -->
+          </div>
+
+          <div class="col-md-3">
+            {% for politicsPost in politicsPosts %}
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">{{politicsPost.category}}</span> <span class="mx-1">&bullet;</span> <span>{{politicsPost.date}}</span></div>
+              <h2 class="mb-2"><a href="/post/{{politicsPost.id}}">{{politicsPost.heading}}</a></h2>
+              <span class="author mb-3 d-block">{{politicsPost.writer}}</span>
+            </div>
+            {% endfor %}
+          
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category-section">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header d-flex justify-content-between align-items-center mb-5">
+          <h2>Entertainment</h2>
+          <div><a href="category/Entertainment" class="more">See All Entertainment</a></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-9">
+         {% for entertainmentPost in entertainmentPosts %}
+            <div class="d-lg-flex post-entry-2">
+              <a href="/post/{{entertainmentPost.id}}" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
+                <img src="{{entertainmentPost.cover_image.url}}" alt="" class="img-fluid">
+              </a>
+              <div>
+                <div class="post-meta"><span class="date">{{entertainmentPost.category}}</span> <span class="mx-1">&bullet;</span> <span>{{entertainmentPost.date}}</span></div>
+                <h3><a href="/post/{{entertainmentPost.id}}">{{entertainmentPost.heading}}</a></h3>
+                <p>{{entertainmentPost.short_paragraph}}</p>
+                <div class="d-flex align-items-center author">
+                  <!-- <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div> -->
+                  <div class="name">
+                    <h3 class="m-0 p-0">{{entertainmentPost.writer}}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+            <!-- <div class="row">
+              <div class="col-lg-4">
+                <div class="post-entry-1 border-bottom">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                </div>
+
+                <div class="post-entry-1">
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+              </div>
+
+              <div class="col-lg-8">
+                <div class="post-entry-1">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                </div>
+              </div>
+            </div> -->
+          </div>
+
+          <div class="col-md-3">
+            {% for entertainmentPost in entertainmentPosts %}
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">{{entertainmentPost.category}}</span> <span class="mx-1">&bullet;</span> <span>{{entertainmentPost.date}}</span></div>
+              <h2 class="mb-2"><a href="/post/{{entertainmentPost.id}}">{{entertainmentPost.heading}}</a></h2>
+              <span class="author mb-3 d-block">{{entertainmentPost.writer}}</span>
+            </div>
+            {% endfor %}
+          
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category-section">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header d-flex justify-content-between align-items-center mb-5">
+          <h2>Metro</h2>
+          <div><a href="/category/Metro" class="more">See All Metro</a></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-9">
+         {% for metroPost in metroPosts %}
+            <div class="d-lg-flex post-entry-2">
+              <a href="/post/{{metroPost.id}}" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
+                <img src="{{metroPost.cover_image.url}}" alt="" class="img-fluid">
+              </a>
+              <div>
+                <div class="post-meta"><span class="date">{{metroPost.category}}</span> <span class="mx-1">&bullet;</span> <span>{{metroPost.date}}</span></div>
+                <h3><a href="/post/{{metroPost.id}}.html">{{metroPost.heading}}</a></h3>
+                <p>{{metroPost.short_paragraph}}</p>
+                <div class="d-flex align-items-center author">
+                  <!-- <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div> -->
+                  <div class="name">
+                    <h3 class="m-0 p-0">{{metroPost.writer}}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+            <!-- <div class="row">
+              <div class="col-lg-4">
+                <div class="post-entry-1 border-bottom">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                </div>
+
+                <div class="post-entry-1">
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+              </div>
+
+              <div class="col-lg-8">
+                <div class="post-entry-1">
+                  <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                </div>
+              </div>
+            </div> -->
+          </div>
+
+          <div class="col-md-3">
+            {% for metroPost in metroPosts %}
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">{{metroPost.category}}</span> <span class="mx-1">&bullet;</span> <span>{{metroPost.date}}</span></div>
+              <h2 class="mb-2"><a href="/post/{{metroPost.id}}">{{metroPost.heading}}</a></h2>
+              <span class="author mb-3 d-block">{{metroPost.writer}}</span>
+            </div>
+            {% endfor %}
+          
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </main><!-- End #main -->
+{% endblock %}

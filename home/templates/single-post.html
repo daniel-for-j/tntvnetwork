@@ -1,0 +1,37 @@
+{%  extends 'layout.html' %}
+
+{% load static %}
+
+{% block content %}
+  <main id="main">
+
+    <section class="single-post-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9 post-content" data-aos="fade-up">
+
+            <!-- ======= Single Post Content ======= -->
+            <div class="single-post">
+              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{post.date}}</span></div>
+              <h1 class="mb-5">{{post.heading}}</h1>
+              <figure class="my-4">
+                <img src="{{post.cover_image.url}}" alt="" class="img-fluid">
+                <figcaption></figcaption>
+              </figure>
+              <p style="font-size: 100px;"><span class="firstcharacter">L</span>{{post.story|linebreaks}}</p>
+          
+            <!-- End Single Post Content -->
+
+          
+
+          </div>
+         
+        </div>
+      </div>
+    </section>
+  </main><!-- End #main -->
+
+{% endblock %}
+
+
+ 
