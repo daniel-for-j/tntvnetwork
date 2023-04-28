@@ -1,0 +1,9 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/tntvnetw/tntv
+    - /bin/cp -R home $DEPLOYPATH
+    - /bin/cp -R media $DEPLOYPATH
+    - /bin/cp -R tntvnetwork $DEPLOYPATH
+    - /bin/cp db.sqlite3 $DEPLOYPATH
+    - /bin/cp manage.py $DEPLOYPATH
