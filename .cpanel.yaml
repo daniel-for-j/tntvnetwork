@@ -7,3 +7,6 @@ deployment:
     - /bin/cp -R tntvnetwork $DEPLOYPATH
     - /bin/cp db.sqlite3 $DEPLOYPATH
     - /bin/cp manage.py $DEPLOYPATH
+    - /bin/cp notes.sql $DEPLOYPATH
+
+
