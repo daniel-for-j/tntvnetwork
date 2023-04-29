@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-h)o_7n^)2av(v-578q#ssnq)6pv9&p23_@%z=mqkt%gw-1=7eh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.tntvnetworknews.com','tntvnetworknews.com']
 
 
 # Application definition
