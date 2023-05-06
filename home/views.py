@@ -36,7 +36,7 @@ def home(request):
 def category(request,category):
     categories = Categories.objects.all()
     recentPosts = Post.objects.all().order_by('-date')[:4]
-    # Pagination
+    # Pagination 
     singleCategory =  Post.objects.filter(category__category_name=category).order_by('-date')[:1]
     categoryPosts = Post.objects.filter(category__category_name=category).order_by('-date')
     categoryPaginator = Paginator(categoryPosts,10)
