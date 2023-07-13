@@ -14,7 +14,7 @@ from django.conf import settings
 
 def home(request):
     categories = Categories.objects.all()
-    postSlider = Post.objects.all().order_by('-date')[:2]
+    postSlider = Post.objects.all().order_by('-date')[:4]
     politicsLatestPost = Post.objects.filter(category__category_name="Politics").order_by('-date')[:1]
     politicsPosts = Post.objects.filter(category__category_name="Politics").order_by('-date')[:6]
     metroPosts = Post.objects.filter(category__category_name="Metro").order_by('-date')[:6]
