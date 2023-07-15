@@ -16,11 +16,11 @@ def home(request):
     categories = Categories.objects.all()
     postSlider = Post.objects.all().order_by('-date')[:4]
     politicsLatestPost = Post.objects.filter(category__category_name="Politics").order_by('-date')[:1]
-    politicsPosts = Post.objects.filter(category__category_name="Politics").order_by('-date')[:6]
-    metroPosts = Post.objects.filter(category__category_name="Metro").order_by('-date')[:6]
+    politicsPosts = Post.objects.filter(category__category_name="Politics").order_by('-date')[:3]
+    metroPosts = Post.objects.filter(category__category_name="Metro").order_by('-date')[:3]
     metroLatestPost = Post.objects.filter(category__category_name="Metro").order_by('-date')[:1]
     entertainmentLatestPost = Post.objects.filter(category__category_name="Entertainment").order_by('-date')[:1]
-    entertainmentPosts = Post.objects.filter(category__category_name="Entertainment").order_by('-date')[:6]
+    entertainmentPosts = Post.objects.filter(category__category_name="Entertainment").order_by('-date')[:3]
     recentPosts = Post.objects.all().order_by('-date')[:4]
     return render(request, 'index.html',
                   {'categories': categories,
