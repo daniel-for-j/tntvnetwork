@@ -1,10 +1,115 @@
-{%  extends 'layout.html' %}
 
 {% load static %}
 
-{% block content %}
-  <main id="main">
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>TnTv Network</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+   <meta property="og:image" content="{{post.cover_image.url}}"/>
+   <meta property="og:url" content="http://tntvnetworknews.com/"/>
+  <meta property="og:title" content="{{post.heading}}"/>
+    <meta property="og:description"
+        content="News at it's finest!"/>
+  <meta property="og:type" content="{{post.category}}"/>
+  
+  <meta property="og:site_name" content="TNTV"/>
+
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/WhatsApp Image 2023-04-06 at 12.18.50.png' %}" rel="icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="{% static 'assets/css/variables.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="/" class="logo d-flex align-items-center" >
+        <img src="{% static 'assets/img/WhatsApp Image 2023-04-06 at 12.18.50.png' %}"  alt="">
+        <h1 style="color:rgb(0, 0, 59);font-family:fantasy">TnTv Network</h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul style="color:blue">
+          <li><a href="/">Home</a></li>
+          {%  for category in categories %}
+          <li><a href="/category/{{category.category_name}}">{{category.category_name}}</a></li>
+          {% endfor %}
+      
+          <!-- <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="search-result.html">Search Result</a></li>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li> -->
+
+          <!-- <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li> -->
+        </ul>
+      </nav><!-- .navbar -->
+
+      <div class="position-relative">
+        <a href="https://www.facebook.com/TnTvNetwork?mibextid=ZbWKwL"  target="_blank" class="mx-2"><span class="bi-facebook"></span></a>
+        <a href="https://twitter.com/tntvNetworkNews?t=dtMi-5RMtDICHIm5wIxFSw&s=09"  target="_blank" class="mx-2"><span class="bi-twitter"></span></a>
+        <a href="https://instagram.com/tntvnetwork?igshid=ZDdkNTZiNTM="  target="_blank" class="mx-2"><span class="bi-instagram"></span></a>
+
+        <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+        <!-- ======= Search Form ======= -->
+        <div class="search-form-wrap js-search-form-wrap">
+          <form action="search-result.html" class="search-form">
+            <span class="icon bi-search"></span>
+            <input type="text" placeholder="Search" class="form-control">
+            <button class="btn js-search-close"><span class="bi-x"></span></button>
+          </form>
+        </div><!-- End Search Form -->
+
+      </div>
+
+    </div>
+
+  </header><!-- End Header -->
+
+  <main id="main">
+ 
     <section class="single-post-content">
       <div class="container">
         <div class="row">
@@ -12,7 +117,7 @@
 
             <!-- ======= Single Post Content ======= -->
             <div class="single-post">
-              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{post.date}}</span></div>
+              <div class="post-meta"><span class="date">{{post.category}}</span> <span class="mx-1">&bullet;</span> <span>{{post.date}}</span></div>
               <h1 class="mb-5">{{post.heading}}</h1>
               <figure class="my-4">
                 <img src="{{post.cover_image.url}}" alt="" class="img-fluid">
@@ -31,7 +136,96 @@
     </section>
   </main><!-- End #main -->
 
-{% endblock %}
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="footer-content">
+      <div class="container">
+
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <h3 class="footer-heading">About TnTv Network</h3>
+            <p>News at it's finest</p>
+            <p><a href="/" class="footer-link-more">Learn More</a></p>
+          </div>
+        
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading">Categories</h3>
+            <ul class="footer-links list-unstyled">
+              {%for category in categories %} 
+              <li><a href="/category/{{category.category_name}}"><i class="bi bi-chevron-right"></i>{{ category.category_name }}</a></li>
+             {% endfor %}
+            </ul>
+          </div>
+
+          <div class="col-lg-4">
+            <h3 class="footer-heading">Recent Posts</h3>
+
+            <ul class="footer-links footer-blog-entry list-unstyled">
+              {% for recentPost in recentPosts %}
+              <li>
+                <a href="post/{{recentPost.id}}" class="d-flex align-items-center">
+                  <img src="{{ recentPost.cover_image.url }}" alt="" class="img-fluid me-3">
+                  <div>
+                    <div class="post-meta d-block"><span class="date">{{ recentPost.category }}</span> <span class="mx-1">&bullet;</span> <span>{{ recentPost.date}}</span></div>
+                    <span>{{recentPost.heading}}</span>
+                  </div>
+                </a>
+              </li>
+              {% endfor %}
+           
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <div class="container">
+
+        <div class="row justify-content-between">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+
+            <div class="credits">
+              Designed by <a href="dannysport.netlify.app">DannyCodes</a>
+            </div>
+
+          </div>
+
+          <div class="col-md-6">
+            <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
+              <a href="https://www.facebook.com/TnTvNetwork?mibextid=ZbWKwL"  target="_blank" class="mx-2"><span class="bi-facebook"></span></a>
+              <a href="https://twitter.com/tntvNetworkNews?t=dtMi-5RMtDICHIm5wIxFSw&s=09"  target="_blank" class="mx-2"><span class="bi-twitter"></span></a>
+              <a href="https://instagram.com/tntvnetwork?igshid=ZDdkNTZiNTM="  target="_blank" class="mx-2"><span class="bi-instagram"></span></a>
+              <!-- <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a> -->
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
+
 
 
  

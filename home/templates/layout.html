@@ -30,7 +30,8 @@
   <link href="{% static 'assets/css/variables.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7522665593084598"
+     crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -134,7 +135,7 @@
             <ul class="footer-links footer-blog-entry list-unstyled">
               {% for recentPost in recentPosts %}
               <li>
-                <a href="post/{{recentPost.id}}" class="d-flex align-items-center">
+                <a href="/post/{{recentPost.id}}" class="d-flex align-items-center">
                   <img src="{{ recentPost.cover_image.url }}" alt="" class="img-fluid me-3">
                   <div>
                     <div class="post-meta d-block"><span class="date">{{ recentPost.category }}</span> <span class="mx-1">&bullet;</span> <span>{{ recentPost.date}}</span></div>
